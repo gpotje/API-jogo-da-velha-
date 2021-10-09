@@ -38,6 +38,38 @@
 			"response": []
 		},
 		{
+			"name": "FindByID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jogada\":\"X - 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tabuleiro/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tabuleiro",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "CriarJogada",
 			"request": {
 				"method": "POST",
