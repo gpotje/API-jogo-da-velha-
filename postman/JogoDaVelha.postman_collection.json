@@ -15,7 +15,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"jogada\":\"X - 1\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -76,7 +76,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"jogada\":\"O - 3\"\n}",
+					"raw": "{\n    \"jogador\":\"w\",\n    \"coordenada\":1\n}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -38,7 +38,7 @@ public class TabuleiroController {
 	@PostMapping
 	public ResponseEntity<?> criaJogada(@RequestBody Tabuleiro jogada){ 
 		 service.criaJogada(jogada);
-		return ResponseEntity.ok().body("jogada "+ jogada.getJogada() +" Feita com  Sucesso");
+		return ResponseEntity.ok().body("jogada Feita com  Sucesso");
 	}
 
 	

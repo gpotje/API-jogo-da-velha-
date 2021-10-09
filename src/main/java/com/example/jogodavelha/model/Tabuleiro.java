@@ -15,6 +15,7 @@ public class Tabuleiro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
-	private String jogada;
+	private Jogador jogador;
+	private Integer coordenada;
 	
 }
