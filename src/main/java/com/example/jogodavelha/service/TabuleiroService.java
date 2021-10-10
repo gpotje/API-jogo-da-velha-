@@ -15,6 +15,8 @@ import com.example.jogodavelha.repository.TabuleiroRepository;
 @Service
 public class TabuleiroService {
 
+	ModelMapper modelMapper = new ModelMapper();
+
 	@Autowired
 	private TabuleiroRepository repository;
 
@@ -24,10 +26,27 @@ public class TabuleiroService {
 			verificarJogada(jogada);
 		}
 
-		ModelMapper modelMapper = new ModelMapper();
-		Tabuleiro dto = modelMapper.map(jogada, Tabuleiro.class);
+		if (jogada.getJogador() == Jogador.X)
+			Tabuleiro.historicojogadorX.add(jogada.getCoordenada());
+		else
+			Tabuleiro.historicojogadorO.add(jogada.getCoordenada());
 
-		repository.save(dto);
+		Tabuleiro entity = modelMapper.map(jogada, Tabuleiro.class);
+
+		repository.save(entity);
+	}
+
+	public void criaJogadaList(List<Tabuleiro> jogada) {
+
+		for (Tabuleiro tabuleiro : jogada) {
+			if (tabuleiro.getJogador() == Jogador.X)
+				Tabuleiro.historicojogadorX.add(tabuleiro.getCoordenada());
+			else
+				Tabuleiro.historicojogadorO.add(tabuleiro.getCoordenada());
+
+		}
+
+		repository.saveAll(jogada);
 	}
 
 	private void verificarJogada(TabuleiroDto jogada) {
@@ -55,7 +74,15 @@ public class TabuleiroService {
 	}
 
 	public List<Tabuleiro> consultaTabuleiro() {
-		return repository.findAll();
+		List<Tabuleiro> aux = repository.findAll();
+		VerificarGanhadorUtil util = new VerificarGanhadorUtil();
+		if (repository.count() > 3) {
+			System.out.println(util.verificaHorizontal());
+			System.out.println(util.verificaVertical());
+			System.out.println(util.verificaDiagonal());
+
+		}
+		return aux;
 	}
 
 }

@@ -41,6 +41,11 @@ public class TabuleiroController {
 		 service.criaJogada(jogada);
 		return ResponseEntity.ok().body("jogada Feita com  Sucesso");
 	}
+	@PostMapping("/list")
+	public ResponseEntity<?> criaJogadaLista(@RequestBody List<Tabuleiro> jogada){ 
+		 service.criaJogadaList(jogada);
+		return ResponseEntity.ok().body("jogada Feita com  Sucesso");
+	}
 
 	
 
