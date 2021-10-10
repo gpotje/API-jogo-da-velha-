@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.jogodavelha.dto.TabuleiroDto;
 import com.example.jogodavelha.model.Tabuleiro;
 import com.example.jogodavelha.service.TabuleiroService;
 
@@ -36,7 +37,7 @@ public class TabuleiroController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> criaJogada(@RequestBody Tabuleiro jogada){ 
+	public ResponseEntity<?> criaJogada(@RequestBody TabuleiroDto jogada){ 
 		 service.criaJogada(jogada);
 		return ResponseEntity.ok().body("jogada Feita com  Sucesso");
 	}
