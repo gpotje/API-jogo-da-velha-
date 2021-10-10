@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1664d100-4ff8-4087-a0a8-615884c18e5a",
+		"_postman_id": "5bd307c2-a529-430b-9ec0-552dd3b9278b",
 		"name": "JogoDaVelha",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -76,7 +76,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"jogador\":\"w\",\n    \"coordenada\":1\n}",
+					"raw": " {\n        \"jogador\": \"O\",\n        \"coordenada\": 5\n        \n }\n\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -93,6 +93,35 @@
 					"path": [
 						"tabuleiro",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CriarJogadalist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 0\n      \n    },\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 1\n        \n    },\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 2\n      \n    },\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 0\n       \n    },\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 4\n      \n    },\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 8\n      \n    },\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 3\n   \n    },\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 4\n       \n    },\n    {\n        \"jogador\": \"X\",\n        \"coordenada\": 5\n        \n    }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tabuleiro/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tabuleiro",
+						"list"
 					]
 				}
 			},
