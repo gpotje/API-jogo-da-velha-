@@ -65,7 +65,7 @@ public class TabuleiroService {
 	}
 
 	public Tabuleiro consultaTabuleiroPorID(Long id) {
-		return repository.findById(id).get();
+		return repository.findById(id).orElseThrow();
 	}
 
 	private boolean verificarCoodenada(Integer coordenada) {
@@ -83,6 +83,18 @@ public class TabuleiroService {
 
 		}
 		return aux;
+	}
+
+	public void deleteEmployees() {
+		Long cont = repository.count();
+
+		if(cont >= 1) {
+			for (long i = 1; i <= cont; i++) {
+				repository.deleteById(i);
+			}
+		}
+		throw new ObjectBadRequestException("Inda não houve jogadas, sendo imposivel resetar o jogo");
+
 	}
 
 }
