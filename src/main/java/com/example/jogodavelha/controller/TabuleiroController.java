@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.jogodavelha.dto.GanhadorDto;
 import com.example.jogodavelha.dto.TabuleiroDto;
 import com.example.jogodavelha.model.Tabuleiro;
 import com.example.jogodavelha.service.TabuleiroService;
@@ -27,7 +28,7 @@ public class TabuleiroController {
 	
 	@GetMapping
 	public ResponseEntity<?> consultaTabuleiro(){ 
-		List<Tabuleiro> retornoTabuleiro = service.consultaTabuleiro();
+		GanhadorDto retornoTabuleiro = service.consultaTabuleiro();
 		 return ResponseEntity.ok().body(retornoTabuleiro);
 	}
 	

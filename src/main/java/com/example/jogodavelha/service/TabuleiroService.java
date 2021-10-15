@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.jogodavelha.dto.GanhadorDto;
 import com.example.jogodavelha.dto.TabuleiroDto;
 import com.example.jogodavelha.exception.ObjectBadRequestException;
 import com.example.jogodavelha.model.Jogador;
@@ -73,16 +74,20 @@ public class TabuleiroService {
 
 	}
 
-	public List<Tabuleiro> consultaTabuleiro() {
-		List<Tabuleiro> aux = repository.findAll();
+	public GanhadorDto consultaTabuleiro() {
 		VerificarGanhadorUtil util = new VerificarGanhadorUtil();
-		if (repository.count() > 3) {
-			System.out.println(util.verificaHorizontal());
-			System.out.println(util.verificaVertical());
-			System.out.println(util.verificaDiagonal());
-
+		GanhadorDto dtoRetorno = util.verificarTodosPossibilidadesVitoria();
+		GanhadorDto dto = new GanhadorDto();
+		dto.setJogadas(repository.findAll());
+		
+		if(repository.count() > 4 && dtoRetorno.getGanhador()) {
+			dto.setCoordenada(dtoRetorno.getCoordenada());
+			dto.setGanhador(dtoRetorno.getGanhador());
+			dto.setJogador(dtoRetorno.getJogador());
+			return dto;
 		}
-		return aux;
+		dto.setGanhador(false);
+		return dto;
 	}
 
 	public void deleteEmployees() {
