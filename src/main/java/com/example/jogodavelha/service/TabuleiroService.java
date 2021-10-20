@@ -79,8 +79,8 @@ public class TabuleiroService {
 		GanhadorDto dtoRetorno = util.verificarTodosPossibilidadesVitoria();
 		GanhadorDto dto = new GanhadorDto();
 		dto.setJogadas(repository.findAll());
-		
-		if(repository.count() > 4 && dtoRetorno.getGanhador()) {
+
+		if (repository.count() > 4 && dtoRetorno.getGanhador()) {
 			dto.setCoordenada(dtoRetorno.getCoordenada());
 			dto.setGanhador(dtoRetorno.getGanhador());
 			dto.setJogador(dtoRetorno.getJogador());
@@ -91,14 +91,16 @@ public class TabuleiroService {
 	}
 
 	public void deleteEmployees() {
-		Long cont = repository.count();
-
-		if(cont >= 1) {
-			for (long i = 1; i <= cont; i++) {
-				repository.deleteById(i);
+		Long tamanhoList = repository.count();
+		if (tamanhoList > 0) {
+			List<Tabuleiro> listTabuleiro = repository.findAll();
+			for (Tabuleiro tabuleiro : listTabuleiro) {
+				repository.deleteById(tabuleiro.getId());
 			}
+
+		} else {
+			throw new ObjectBadRequestException("Inda não houve jogadas, sendo imposivel resetar o jogo");
 		}
-		throw new ObjectBadRequestException("Inda não houve jogadas, sendo imposivel resetar o jogo");
 
 	}
 
