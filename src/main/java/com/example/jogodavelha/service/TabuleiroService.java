@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 import com.example.jogodavelha.dto.GanhadorDto;
 import com.example.jogodavelha.dto.TabuleiroDto;
 import com.example.jogodavelha.exception.ObjectBadRequestException;
-import com.example.jogodavelha.model.Jogador;
 import com.example.jogodavelha.model.Tabuleiro;
+import com.example.jogodavelha.model.enuns.Jogador;
 import com.example.jogodavelha.repository.TabuleiroRepository;
+import com.example.jogodavelha.service.util.VerificarGanhadorUtil;
 
 @Service
 public class TabuleiroService {
@@ -60,7 +61,7 @@ public class TabuleiroService {
 	}
 
 	private Jogador verificarUltimoJogador() {
-		Long jogadorId = repository.count();
+		Long jogadorId = repository.findMaxId();
 		Tabuleiro UltimoJogar = consultaTabuleiroPorID(jogadorId);
 		return UltimoJogar.getJogador();
 	}

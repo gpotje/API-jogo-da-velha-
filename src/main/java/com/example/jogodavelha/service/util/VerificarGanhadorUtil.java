@@ -1,12 +1,12 @@
-package com.example.jogodavelha.service;
+package com.example.jogodavelha.service.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import com.example.jogodavelha.dto.GanhadorDto;
-import com.example.jogodavelha.model.Jogador;
 import com.example.jogodavelha.model.Tabuleiro;
+import com.example.jogodavelha.model.enuns.Jogador;
 
 public class VerificarGanhadorUtil {
 

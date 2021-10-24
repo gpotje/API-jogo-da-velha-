@@ -27,31 +27,31 @@ public class TabuleiroController {
 	
 	
 	@GetMapping
-	public ResponseEntity<?> consultaTabuleiro(){ 
+	public ResponseEntity<GanhadorDto> consultaTabuleiro(){ 
 		GanhadorDto retornoTabuleiro = service.consultaTabuleiro();
 		 return ResponseEntity.ok().body(retornoTabuleiro);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> consultaTabuleiroPorID(@PathVariable Long id){ 
+	public ResponseEntity<Tabuleiro> consultaTabuleiroPorID(@PathVariable Long id){ 
 		Tabuleiro retornoTabuleiro = service.consultaTabuleiroPorID(id);
 		 return ResponseEntity.ok().body(retornoTabuleiro);
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> criaJogada(@RequestBody TabuleiroDto jogada){ 
+	public ResponseEntity<String> criaJogada(@RequestBody TabuleiroDto jogada){ 
 		 service.criaJogada(jogada);
 		return ResponseEntity.ok().body("jogada Feita com  Sucesso");
 	}
 	
 	@DeleteMapping("/reset")
-	public ResponseEntity<?> reset(){ 
+	public ResponseEntity<String> reset(){ 
 		 service.deleteEmployees();
 		return ResponseEntity.ok().body("Jogo resetado com sucesso");
 	}
 	
 	@PostMapping("/list")
-	public ResponseEntity<?> criaJogadaLista(@RequestBody List<Tabuleiro> jogada){ 
+	public ResponseEntity<String> criaJogadaLista(@RequestBody List<Tabuleiro> jogada){ 
 		 service.criaJogadaList(jogada);
 		return ResponseEntity.ok().body("jogada Feita com  Sucesso");
 	}

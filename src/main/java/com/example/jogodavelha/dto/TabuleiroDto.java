@@ -1,6 +1,6 @@
 package com.example.jogodavelha.dto;
 
-import com.example.jogodavelha.model.Jogador;
+import com.example.jogodavelha.model.enuns.Jogador;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

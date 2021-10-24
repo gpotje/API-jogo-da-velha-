@@ -2,8 +2,8 @@ package com.example.jogodavelha.dto;
 
 import java.util.List;
 
-import com.example.jogodavelha.model.Jogador;
 import com.example.jogodavelha.model.Tabuleiro;
+import com.example.jogodavelha.model.enuns.Jogador;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

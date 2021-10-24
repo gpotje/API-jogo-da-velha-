@@ -8,6 +8,7 @@ import javax.persistence.*;
 
 import org.modelmapper.internal.util.Stack;
 
+import com.example.jogodavelha.model.enuns.Jogador;
 import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
