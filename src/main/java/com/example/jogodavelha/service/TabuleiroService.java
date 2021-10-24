@@ -24,7 +24,7 @@ public class TabuleiroService {
 
 	public void criaJogada(TabuleiroDto jogada) {
 
-		if (repository.count() != 0) {
+		if (repository.count() > 0) {
 			verificarJogada(jogada);
 		}
 

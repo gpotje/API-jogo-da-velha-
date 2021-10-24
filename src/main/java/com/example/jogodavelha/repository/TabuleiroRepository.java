@@ -9,7 +9,7 @@ public interface TabuleiroRepository extends JpaRepository<Tabuleiro,Long> {
 	
 	Tabuleiro findByCoordenada(Integer coordenada);
 	
-	@Query("SELECT MAX(tbt.id) from Tabuleiro tbt")
+	@Query("SELECT MAX(tbt.id) FROM Tabuleiro tbt")
 	Long findMaxId();
 
 }
