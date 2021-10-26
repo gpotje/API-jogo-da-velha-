@@ -81,7 +81,7 @@ public class TabuleiroService {
 		GanhadorDto dto = new GanhadorDto();
 		dto.setJogadas(repository.findAll());
 
-		if (repository.count() > 4 && dtoRetorno.getGanhador()) {
+		if (dtoRetorno.getGanhador() & repository.count() > 4 ) {
 			dto.setCoordenada(dtoRetorno.getCoordenada());
 			dto.setGanhador(dtoRetorno.getGanhador());
 			dto.setJogador(dtoRetorno.getJogador());
