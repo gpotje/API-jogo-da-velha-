@@ -23,7 +23,6 @@ O projeto é uma aplicação back-end com objetivo de demonstrar a produtividade
 Antes de rodar a aplicação é preciso garantir que as seguintes dependências estejam corretamente instaladas:
 ```
 Java 11
-
 ```
 ## Instalação da aplicação
 
