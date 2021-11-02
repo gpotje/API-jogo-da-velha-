@@ -1,5 +1,6 @@
 package com.example.jogodavelha.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -95,6 +96,8 @@ public class TabuleiroService {
 		Long tamanhoList = repository.count();
 		if (tamanhoList > 0) {
 			List<Tabuleiro> listTabuleiro = repository.findAll();
+			Tabuleiro.historicojogadorX = new ArrayList<>();
+			Tabuleiro.historicojogadorO = new ArrayList<>();
 			for (Tabuleiro tabuleiro : listTabuleiro) {
 				repository.deleteById(tabuleiro.getId());
 			}
